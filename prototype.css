@@ -204,3 +204,74 @@ button {
     cursor: pointer;
     accent-color: #1f1f1f;
 }
+
+/* Responsive design system */
+
+/* Medium: less than 840px */
+@media (max-width: 839px) {
+    .prototype {
+        width: min(92%, 720px);
+        margin: 40px auto;
+    }
+
+    h1 {
+        font-size: clamp(3rem, 12vw, 5rem);
+        line-height: 0.95;
+    }
+
+    .session-status,
+    .variation-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    #playButton,
+    #generateButton {
+        width: 100%;
+    }
+
+    .mix-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Expanded: 840px–1199px */
+@media (min-width: 840px) and (max-width: 1199px) {
+    .prototype {
+        width: min(86%, 900px);
+        margin: 60px auto;
+    }
+
+    .mix-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large: 1200px–1600px */
+@media (min-width: 1200px) and (max-width: 1600px) {
+    .prototype {
+        width: min(72%, 1100px);
+        margin: 70px auto;
+    }
+
+    .mix-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Extra-large: greater than 1600px */
+@media (min-width: 1601px) {
+    .prototype {
+        max-width: 1200px;
+        margin: 90px auto;
+    }
+
+    h1 {
+        font-size: 7rem;
+    }
+
+    .mix-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
