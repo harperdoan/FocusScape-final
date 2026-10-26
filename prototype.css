@@ -183,3 +183,24 @@ button {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+.mix-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 18px;
+}
+
+.mix-item span {
+    font-size: 14px;
+}
+
+.mix-item strong {
+    font-size: 22px;
+}
+
+.mix-item input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+    accent-color: #1f1f1f;
+}
