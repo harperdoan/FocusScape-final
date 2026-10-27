@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+/*
+I chose a warm off-white background and dark text to create
+a calm study environment. The restrained colour palette
+reduces visual distractions and keeps the sound controls
+as the main focus of the interface.
+*/
+
 body {
     margin: 0;
     min-height: 100vh;
@@ -154,36 +161,6 @@ button {
     font-size: 0.9rem;
 }
 
-.prototype-note {
-    max-width: 650px;
-    margin-top: 45px;
-    padding-top: 25px;
-    border-top: 1px solid #c9c5bc;
-    line-height: 1.6;
-}
-
-@media (max-width: 600px) {
-
-    .prototype {
-        padding-top: 45px;
-    }
-
-    .session-status,
-    .variation-heading {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    #playButton,
-    #generateButton {
-        width: 100%;
-    }
-
-    .mix-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 .mix-item {
     display: flex;
     flex-direction: column;
@@ -207,6 +184,13 @@ button {
 
 /* Responsive design system */
 
+/*
+The layout adapts to different screen widths so users can
+access the same sound controls on mobile and desktop.
+Smaller screens use a single-column layout to prevent
+crowded sliders and improve touch interaction.
+*/
+
 /* Medium: less than 840px */
 @media (max-width: 839px) {
     .prototype {
@@ -229,6 +213,26 @@ button {
     #playButton,
     #generateButton {
         width: 100%;
+    }
+
+    .mix-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small screens: below 600px */
+@media (max-width: 599px) {
+    .prototype {
+        width: calc(100% - 32px);
+        padding-top: 32px;
+    }
+
+    .player {
+        padding: 18px;
+    }
+
+    h1 {
+        font-size: clamp(2.5rem, 11vw, 4rem);
     }
 
     .mix-grid {

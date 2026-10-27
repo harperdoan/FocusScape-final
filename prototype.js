@@ -178,9 +178,15 @@ function showFeedback(previousMix) {
 }
 
 
-// Generates a subtle variation around the user's current mix.
-// Each layer only changes by a small amount so the soundscape
-// evolves without creating a sudden distraction.
+/*
+I used Math.random() to generate small changes around the current
+sound mix instead of replacing it completely. Each sound layer has
+a different variation range to keep the atmosphere familiar.
+
+The clamp() function prevents values from going below 0 or above
+100. This balances unexpected variation with user control and
+responds to the design scenario of maintaining focus during study.
+*/
 function generateVariation() {
     const previousMix = {
         ...mix
@@ -212,12 +218,26 @@ function generateVariation() {
     showFeedback(previousMix);
 }
 
+/*
+I used the Web Audio API to generate the soundscape directly
+in the browser without external audio files. Filtered noise
+creates the rain, café and wind layers, while sine oscillators
+produce the soft tone.
 
-// Creates the complete browser-based soundscape.
+Each layer has its own gain node so users can adjust volumes
+independently. A master gain node controls the overall output.
+*/
 function createSoundscape() {
     const AudioContext =
         window.AudioContext ||
         window.webkitAudioContext;
+
+    if (!AudioContext) {
+        statusText.textContent =
+            "Audio is not supported in this browser.";
+
+        return false;
+    }
 
     audioContext =
         new AudioContext();
@@ -389,6 +409,8 @@ function createSoundscape() {
         tone1,
         tone2
     ];
+
+    return true;
 }
 
 
@@ -503,7 +525,9 @@ playButton.addEventListener(
     "click",
     () => {
         if (!isPlaying) {
-            createSoundscape();
+            if (!createSoundscape()) {
+                return;
+            }
 
             isPlaying = true;
 

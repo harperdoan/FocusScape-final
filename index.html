@@ -25,14 +25,18 @@
             </p>
         </header>
 
-
+        <!--
+        The player groups playback, atmosphere presets and sound controls
+        into one interface. This supports both quick preset selection and
+        detailed sound customisation during study sessions.
+        -->
         <section class="player">
 
             <div class="session-status">
 
                 <div>
                     <p class="small-label">Current session</p>
-                    <p id="status">Ready to focus</p>
+                    <p id="status" aria-live="polite">Ready to focus</p>
                 </div>
 
                 <button id="playButton">
@@ -65,7 +69,7 @@
 
                     <div>
                         <p class="small-label">Current variation</p>
-                        <p class="variation-title" id="variationTitle">
+                        <p class="variation-title" id="variationTitle" aria-live="polite">
                             Variation 1
                         </p>
                     </div>
@@ -112,7 +116,7 @@
                         What changed
                     </p>
 
-                    <div id="feedbackList" class="feedback-list">
+                    <div id="feedbackList" class="feedback-list" aria-live="polite">
                         <p>No changes yet.</p>
                     </div>
 
