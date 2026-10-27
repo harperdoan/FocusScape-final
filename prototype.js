@@ -139,7 +139,7 @@ function updateAudioVolumes() {
 
     smoothVolume(
         toneGain,
-        mix.tone / 100 * 0.055
+        mix.tone / 100 * 0.012
     );
 }
 
@@ -226,7 +226,7 @@ function createSoundscape() {
         audioContext.createGain();
 
     masterGain.gain.value =
-        0.75;
+        0.35;
 
     masterGain.connect(
         audioContext.destination
@@ -266,7 +266,7 @@ function createSoundscape() {
         "highpass";
 
     rainHighPass.frequency.value =
-        1300;
+        500;
 
     const rainLowPass =
         audioContext.createBiquadFilter();
@@ -275,7 +275,7 @@ function createSoundscape() {
         "lowpass";
 
     rainLowPass.frequency.value =
-        4200;
+        2200;
 
     rainGain =
         audioContext.createGain();
@@ -302,7 +302,7 @@ function createSoundscape() {
         "bandpass";
 
     cafeFilter.frequency.value =
-        700;
+        350;
 
     cafeFilter.Q.value =
         0.45;
@@ -331,7 +331,7 @@ function createSoundscape() {
         "lowpass";
 
     windFilter.frequency.value =
-        420;
+        250;
 
     windGain =
         audioContext.createGain();
@@ -366,7 +366,7 @@ function createSoundscape() {
         audioContext.createGain();
 
     toneGain.gain.value =
-        mix.tone / 100 * 0.055;
+        mix.tone / 100 * 0.012;
 
     tone1.connect(toneGain);
     tone2.connect(toneGain);
@@ -456,6 +456,48 @@ generateButton.addEventListener(
     generateVariation
 );
 
+const presetButtons =
+    document.querySelectorAll(".preset-button");
+
+const presets = {
+    rainy: {
+        rain: 55,
+        cafe: 12,
+        wind: 22,
+        tone: 14
+    },
+
+    cafe: {
+        rain: 12,
+        cafe: 55,
+        wind: 10,
+        tone: 18
+    },
+
+    quiet: {
+        rain: 18,
+        cafe: 8,
+        wind: 12,
+        tone: 24
+    }
+};
+
+presetButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const selectedPreset =
+            button.dataset.preset;
+
+        mix = {
+            ...presets[selectedPreset]
+        };
+
+        updateDisplay();
+        updateAudioVolumes();
+
+        feedbackList.innerHTML =
+            `<p>${button.textContent.trim()} preset applied.</p>`;
+    });
+});
 
 playButton.addEventListener(
     "click",
