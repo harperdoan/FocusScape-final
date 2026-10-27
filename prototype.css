@@ -303,3 +303,76 @@ button:disabled {
 .feedback-list p {
     line-height: 1.5;
 }
+
+/* Final interface polish */
+
+.prototype {
+    padding-bottom: 60px;
+}
+
+header {
+    margin-bottom: 42px;
+}
+
+header h1 {
+    max-width: 900px;
+    margin-bottom: 20px;
+}
+
+.intro {
+    max-width: 680px;
+    line-height: 1.6;
+}
+
+.player {
+    padding: 28px;
+    border-radius: 18px;
+}
+
+.session-status,
+.variation-heading {
+    padding-bottom: 20px;
+}
+
+.variation-panel {
+    margin-top: 24px;
+}
+
+.mix-grid {
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.mix-item {
+    border-radius: 14px;
+}
+
+.feedback {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #d0ccc4;
+}
+
+.feedback-list {
+    display: grid;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.feedback-list p {
+    margin: 0;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #ece9e2;
+}
+
+button {
+    min-height: 44px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+#generateButton {
+    border-radius: 10px;
+}
