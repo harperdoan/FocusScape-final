@@ -275,3 +275,31 @@ button {
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
+button,
+input[type="range"] {
+    transition: 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:focus-visible,
+input[type="range"]:focus-visible {
+    outline: 3px solid #1f1f1f;
+    outline-offset: 4px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.mix-item {
+    min-width: 0;
+}
+
+.feedback-list p {
+    line-height: 1.5;
+}
